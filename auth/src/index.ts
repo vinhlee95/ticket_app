@@ -4,6 +4,10 @@ import {json} from 'body-parser'
 const app = express()
 app.use(json())
 
+app.get('/api/users/currentuser', (req, res) => {
+  res.status(200).json({name: 'foo'})
+})
+
 app.listen(3000, () => {
   console.log('App is listening on port 3000')
 })
