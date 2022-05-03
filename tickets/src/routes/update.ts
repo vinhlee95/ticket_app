@@ -5,7 +5,7 @@ import {
   NotFoundError,
   requireAuth,
   NotAuthorizedError,
-} from '@cygnetops/common';
+} from '@shotcode/ticketdevcommon';
 import { Ticket } from '../models/ticket';
 
 const router = express.Router();
