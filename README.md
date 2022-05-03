@@ -31,20 +31,19 @@ Then add the mapping and save. In this example, `tickets.dev` is the host for au
 127.0.0.1 tickets.dev
 ```
 
-5. Build a Docker image for `auth` service:
+5. Build a Docker image for `auth`, `tickets-client` and `tickets` services (if you want to use your own images)
 ```shell
 cd auth
-docker build -t vinhlee95/auth .
+docker build -t your_docker_id/auth .
+docker push your_docker_id/auth
 ```
-Note that the image name, `vinhlee95/auth` in this case, will be used in [`auth-deployment`](./k8s/auth-deployment.yaml) config. 
+Same thing could be done for `tickets-client` and `tickets`.
+Note that the image name, `your_docker_id/auth` in this case, will be used in e.g. [`auth-deployment`](./k8s/auth-deployment.yaml) config. 
 
 6. Start the development environment:
 ```shell
 skaffold dev
 ```
 
-Test 1 endpoint:
-```shell
-curl tickets.dev/api/users/currentuser
-```
-Example output `{"name":"foo"}`
+Example output:
+<img width="718" alt="image" src="https://user-images.githubusercontent.com/31971259/153806649-8e624b9c-81b3-4ffd-bbbe-80e8fa9ce48d.png">
